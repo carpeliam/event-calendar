@@ -1,5 +1,6 @@
 import React from 'react';
+import InfiniteCalendar from 'react-infinite-calendar';
 
 export default function Calendar(props) {
-  return <h1>Watch this space</h1>;
+  return <InfiniteCalendar />;
 }
