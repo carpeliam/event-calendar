@@ -3,15 +3,13 @@ var express = require('express');
 var path = require('path');
 
 var webpack = require('webpack');
-var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackConfig = require('./webpack.config');
 var compiler = webpack(webpackConfig);
+var indexHtml = path.join(compiler.outputPath, 'index.html');
 
 var app = express();
 
-var isProd = process.env.NODE_ENV == 'production';
-
-var indexHtml = path.join(compiler.outputPath, 'index.html');
+var isProd = process.env.NODE_ENV === 'production';
 
 if (isProd) {
   app.use(express.static(compiler.outputPath));
@@ -19,6 +17,7 @@ if (isProd) {
     res.send(indexHtml);
   });
 } else {
+  var webpackDevMiddleware = require('webpack-dev-middleware');
   app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
     publicPath: '/'
