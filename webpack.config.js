@@ -23,7 +23,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Event Calendar'
+      title: 'Event Calendar',
+      template: 'client/index.html'
     })
   ]
 };
