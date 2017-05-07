@@ -1,6 +1,11 @@
 var webpackConfig = require('./webpack.config.js');
 webpackConfig.entry = undefined;
 webpackConfig.devtool = 'inline-source-map';
+webpackConfig.externals = {
+  'react/addons': 'react',
+  'react/lib/ExecutionEnvironment': 'react',
+  'react/lib/ReactContext': 'react'
+};
 
 module.exports = function(config) {
   config.set({
@@ -17,6 +22,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       '../node_modules/whatwg-fetch/fetch.js',
+      'test/matchers.js',
       { pattern: 'test/**/*Spec.js', watched: false, included: true, served: true }
     ],
 
@@ -51,7 +57,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_ERROR,
 
 
     // enable / disable watching file and executing tests whenever any file changes
