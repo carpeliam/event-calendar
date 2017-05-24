@@ -1,5 +1,7 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { googleCalendarAuthLink } = require('./lib/config');
 
 module.exports = {
   entry: [
@@ -25,6 +27,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Event Calendar',
       template: 'client/index.html'
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      googleCalendarAuthLink: JSON.stringify(googleCalendarAuthLink),
     })
   ]
 };
