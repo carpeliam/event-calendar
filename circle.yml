@@ -15,6 +15,7 @@ test:
 
 deployment:
   production:
+    branch: WIP-gcal-spike
     commands:
       - npm run build
       - cf push
