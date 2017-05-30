@@ -1,0 +1,6 @@
+applications:
+- name: event-calendar-acceptance
+  buildpack: nodejs_buildpack
+  command: npm start
+  services:
+  - event-calendar-db
