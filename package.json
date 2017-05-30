@@ -16,6 +16,9 @@
   "author": "Liam Morley <liam@carpeliam.com>",
   "repository": "carpeliam/event-calendar",
   "license": "ISC",
+  "engines": {
+    "node": ">= 7.1.0"
+  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",

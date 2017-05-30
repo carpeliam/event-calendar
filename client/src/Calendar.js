@@ -12,7 +12,7 @@ export default class Calendar extends React.Component {
 
 
   componentWillReceiveProps(props) {
-    console.log('events', props.events);
+    console.log('events', props.events, JSON.stringify(props.events));
   }
 
 
