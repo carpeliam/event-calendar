@@ -5,6 +5,6 @@ import Home from '../src/home';
 describe('Home', () => {
   it('contains a calendar', () => {
     const home = shallow(<Home />);
-    expect(home.find('CalendarContainer')).toBePresent();
+    expect(home.find('Provider')).toBePresent();
   });
 });
